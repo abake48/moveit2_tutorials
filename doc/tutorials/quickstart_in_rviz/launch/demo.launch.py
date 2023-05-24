@@ -16,7 +16,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "rviz_config",
-            default_value="panda_moveit_config_demo.rviz",
+            default_value="moveit_config_demo.rviz",
             description="RViz configuration file",
         )
     )
@@ -29,9 +29,7 @@ def generate_launch_description():
 def launch_setup(context, *args, **kwargs):
 
     moveit_config = (
-        MoveItConfigsBuilder("moveit_resources_panda")
-        .robot_description(file_path="config/panda.urdf.xacro")
-        .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
+        MoveItConfigsBuilder("gen3", package_name="kinova_gen3_7dof_robotiq_2f_85_moveit_config")
         .planning_scene_monitor(
             publish_robot_description=True, publish_robot_description_semantic=True
         )
@@ -76,7 +74,7 @@ def launch_setup(context, *args, **kwargs):
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "panda_link0"],
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
 
     # Publish TF
@@ -90,7 +88,7 @@ def launch_setup(context, *args, **kwargs):
 
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"),
+        get_package_share_directory("moveit_resources_kinova_gen3_7dof_robotiq_2f_85_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
@@ -116,13 +114,13 @@ def launch_setup(context, *args, **kwargs):
     arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["panda_arm_controller", "-c", "/controller_manager"],
+        arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
     )
 
     hand_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["panda_hand_controller", "-c", "/controller_manager"],
+        arguments=["robotiq_gripper_controller", "-c", "/controller_manager"],
     )
     nodes_to_start = [
         rviz_node,
