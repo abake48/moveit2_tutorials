@@ -65,65 +65,99 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          panda_hand:
+          base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_leftfinger:
+          bracelet_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link0:
+          end_effector_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          forearm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link1:
+          half_arm_1_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link2:
+          half_arm_2_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link3:
+          robotiq_85_base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link4:
+          robotiq_85_left_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link5:
+          robotiq_85_left_finger_tip_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link6:
+          robotiq_85_left_inner_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link7:
+          robotiq_85_left_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link8:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          panda_rightfinger:
+          robotiq_85_right_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
+          robotiq_85_right_finger_tip_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_inner_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Robot Alpha: 1
         Show Robot Collision: false
         Show Robot Visual: true
@@ -138,65 +172,99 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        panda_hand:
+        base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_leftfinger:
+        bracelet_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link0:
+        end_effector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link1:
+        half_arm_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link2:
+        half_arm_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link3:
+        robotiq_85_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link4:
+        robotiq_85_left_finger_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link5:
+        robotiq_85_left_finger_tip_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link6:
+        robotiq_85_left_inner_knuckle_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link7:
+        robotiq_85_left_knuckle_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        panda_link8:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        panda_rightfinger:
+        robotiq_85_right_finger_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        robotiq_85_right_finger_tip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robotiq_85_right_inner_knuckle_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robotiq_85_right_knuckle_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        spherical_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        spherical_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Loop Animation: false
       Name: Trajectory
       Robot Alpha: 0.5
@@ -242,65 +310,99 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          panda_hand:
+          base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_leftfinger:
+          bracelet_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link0:
+          end_effector_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          forearm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link1:
+          half_arm_1_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link2:
+          half_arm_2_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link3:
+          robotiq_85_base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link4:
+          robotiq_85_left_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link5:
+          robotiq_85_left_finger_tip_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link6:
+          robotiq_85_left_inner_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link7:
+          robotiq_85_left_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link8:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          panda_rightfinger:
+          robotiq_85_right_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
+          robotiq_85_right_finger_tip_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_inner_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Loop Animation: false
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -346,74 +448,105 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          panda_hand:
+          base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_leftfinger:
+          bracelet_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link0:
+          end_effector_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          forearm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link1:
+          half_arm_1_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link2:
+          half_arm_2_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link3:
+          robotiq_85_base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link4:
+          robotiq_85_left_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link5:
+          robotiq_85_left_finger_tip_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link6:
+          robotiq_85_left_inner_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link7:
+          robotiq_85_left_knuckle_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          panda_link8:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          panda_rightfinger:
+          robotiq_85_right_finger_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-        Robot Alpha: 1
-        Show Robot Collision: false
-        Show Robot Visual: true
+          robotiq_85_right_finger_tip_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_inner_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          robotiq_85_right_knuckle_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          spherical_wrist_2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
       Value: true
       Velocity_Scaling_Factor: 0.1
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: panda_link0
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
