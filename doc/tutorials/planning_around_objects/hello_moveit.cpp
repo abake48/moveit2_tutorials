@@ -51,9 +51,9 @@ int main(int argc, char* argv[])
   auto const target_pose = [] {
     geometry_msgs::msg::Pose msg;
     msg.orientation.w = 1.0;
-    msg.position.x = 0.28;
-    msg.position.y = 0.4;  // <---- This value was changed
-    msg.position.z = 0.5;
+    msg.position.x = 0.6;
+    msg.position.y = 0.5;  // <---- This value was changed
+    msg.position.z = 0.2;
     return msg;
   }();
   move_group_interface.setPoseTarget(target_pose);
@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
 
   // Add the collision object to the scene
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  planning_scene_interface.applyCollisionObject(collision_object);
+  // planning_scene_interface.applyCollisionObject(collision_object);
 
   // Create a plan to that target pose
   prompt("Press 'next' in the RvizVisualToolsGui window to plan");
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
   // Execute the plan
   if (success)
   {
-    draw_trajectory_tool_path(plan.trajectory_);
+    draw_trajectory_tool_path(plan.trajectory);
     moveit_visual_tools.trigger();
     prompt("Press 'next' in the RvizVisualToolsGui window to execute");
     draw_title("Executing");

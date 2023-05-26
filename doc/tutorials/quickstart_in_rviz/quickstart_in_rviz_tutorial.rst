@@ -1,6 +1,6 @@
 MoveIt Quickstart in RViz
 ==========================
-.. image:: kinova_rviz_plugin_head.png
+.. image:: rviz_plugin_head.png
    :width: 700px
 
 This tutorial will teach you how to create motion plans in MoveIt using RViz and the MoveIt Display plugin. Rviz is the primary visualizer in ROS and a very useful tool for debugging robotics. The MoveIt Display plugin allows you to setup virtual environments (planning scenes), create start and goal states for the robot interactively, test various motion planners, and visualize the output. Let's get started!
@@ -43,7 +43,7 @@ Step 1: Launch the Demo and Configure the Plugin
 .. |C| image:: rviz_plugin_motion_planning_add.png
                :width: 400px
 
-.. |D| image:: kinova_rviz_start.png
+.. |D| image:: rviz_start.png
                :width: 700px
 
 * Once you have the Motion Planning Plugin loaded, we can configure it. In the "Global Options" tab of the "Displays" subwindow, set the **Fixed Frame** field to ``/base_link``
@@ -60,7 +60,7 @@ Step 1: Launch the Demo and Configure the Plugin
   * In **Planning Request**, change the **Planning Group** to ``manipulator``. You can also see this in the MotionPlanning panel in the bottom left.
 
 
-.. image:: kinova_rviz_plugin_start.png
+.. image:: rviz_plugin_start.png
    :width: 700px
 
 
@@ -88,7 +88,7 @@ The display states for each of these visualizations can be toggled on and off us
 
 * Play with all these checkboxes to switch on and off different visualizations.
 
-.. image:: kinova_rviz_plugin_visualize_robots.png
+.. image:: rviz_plugin_visualize_robots.png
    :width: 700px
 
 Step 3: Interact with the Kinova Gen 3
@@ -106,7 +106,7 @@ For the next steps we will want only the scene robot, start state and goal state
 
 There should now be two interactive markers. One marker corresponding to the orange colored arm will be used to set the "Goal State" for motion planning and the other marker corresponding to a green colored arm are used to set the "Start State" for motion planning. If you don't see the interactive markers press **Interact** in the top menu of RViz (Note: some tools may be hidden, press **"+"** in the top menu to add the **Interact** tool as shown below).
 
-.. image:: kinova_rviz_plugin_interact.png
+.. image:: rviz_plugin_interact.png
    :width: 700px
 
 You should now be able to use these markers to drag the arm around and change its orientation. Try it!
@@ -122,7 +122,7 @@ For this section, hide the planned path and the goal state:
 
 Now, only the Start State (the green colored arm) should be visible.  Try to move the arm into a configuration where two of its links are in collision with each other.  (If you find this difficult, make sure the "Use Collision-Aware IK" checkbox under the Planning tab of the MotionPlanning plugin is un-checked.)  Once you do this, the links that are in collision will turn red.
 
-.. image:: kinova_rviz_plugin_collision.png
+.. image:: rviz_plugin_collision.png
    :width: 700px
 
 Now, check the "Use Collision-Aware IK" checkbox, and try again to move two of the links into collision with each other.  When the checkbox is ticked, the IK solver will keep attempting to find a collision-free solution for the desired end-effector pose. When it is not checked, the solver will allow collisions to happen in the solution. The links in collision will always still be visualized in red, regardless of the state of the checkbox.
@@ -134,7 +134,7 @@ Moving out of Reachable Workspace
 +++++++++++++++++++++++++++++++++
 Note what happens when you try to move an end-effector out of its reachable workspace.
 
-.. image:: kinova_rviz_plugin_invalid.png
+.. image:: rviz_plugin_invalid.png
    :width: 700px
 
 Before moving onto the next section, re-enable the planned path and the goal state:
@@ -150,7 +150,7 @@ You can use the **Joints** tab to move single joints and the redundant joints of
 .. raw:: html
 
     <video width="700px" controls="true" autoplay="true" loop="true">
-        <source src="../../../_static/videos/kinova_rviz_joints_nullspace.webm" type="video/webm">
+        <source src="../../../_static/videos/rviz_joints_nullspace.webm" type="video/webm">
         The joints moving while the end effector stays still
     </video>
 
@@ -171,7 +171,7 @@ Step 4: Use Motion Planning with the Kinova Gen 3
 
 * Check the **Show Trail** checkbox in the **Planned Path** tree menu. You should see the arm's path represented by a series of manipulator poses.
 
-.. image:: kinova_rviz_plugin_planned_path.png
+.. image:: rviz_plugin_planned_path.png
    :width: 700px
 
 Introspecting Trajectory Waypoints
@@ -188,7 +188,7 @@ You can visually introspect trajectories point by point in RViz.
 Note: Once you placed your end-effector to a new goal, be sure to run *Plan* before running *Play* -- otherwise you'll see the waypoints for the previous goal if available.
 
 
-.. image:: kinova_rviz_plugin_plan_slider.png
+.. image:: rviz_plugin_plan_slider.png
    :width: 700px
 
 Plan Cartesian motions
@@ -196,10 +196,10 @@ Plan Cartesian motions
 
 If the "Use Cartesian Path" checkbox is activated, the robot will attempt to move the end effector linearly in cartesian space.
 
-.. image:: kinova_rviz_plugin_plan_free.png
+.. image:: rviz_plugin_plan_free.png
    :width: 700px
 
-.. image:: kinova_rviz_plugin_plan_cartesian.png
+.. image:: rviz_plugin_plan_cartesian.png
    :width: 700px
 
 
@@ -210,7 +210,7 @@ Clicking "Plan & Execute" or "Execute" after a successful plan will send the tra
 
 Initially, the default velocity and acceleration are scaled to 10% (``0.1``) of the robot's maximum. You can change these scaling factors in the Planning tab shown below, or change these default values in the ``moveit_config`` of your robot (in ``joint_limits.yaml``).
 
-.. image:: kinova_rviz_plugin_collision_aware_ik_checkbox.png
+.. image:: rviz_plugin_collision_aware_ik_checkbox.png
    :width: 700px
 
 
@@ -226,7 +226,7 @@ From "*Panels*" menu, select "*Add New Panels*". From the menu, select "*RvizVis
 .. image:: rviz_add_rviz_visual_tools.png
    :width: 400px
 
-.. image:: kinova_rviz_panels.png
+.. image:: rviz_panels.png
    :width: 700px
 
 Saving Your Configuration
