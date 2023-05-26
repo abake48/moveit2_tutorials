@@ -4,7 +4,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 
 def generate_launch_description():
-    moveit_config = MoveItConfigsBuilder("moveit_resources_panda").to_dict()
+    moveit_config = MoveItConfigsBuilder("moveit_resources_kinova_gen3_moveit_config").to_dict()
 
     # MTC Demo node
     pick_place_demo = Node(

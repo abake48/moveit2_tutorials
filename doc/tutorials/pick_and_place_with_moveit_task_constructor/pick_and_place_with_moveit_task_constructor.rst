@@ -209,9 +209,9 @@ Open ``mtc_node.cpp`` in your editor of choice, and paste in the following code.
       task.stages()->setName("demo task");
       task.loadRobotModel(node_);
 
-      const auto& arm_group_name = "panda_arm";
-      const auto& hand_group_name = "hand";
-      const auto& hand_frame = "panda_hand";
+      const auto& arm_group_name = "manipulator";
+      const auto& hand_group_name = "gripper";
+      const auto& hand_frame = "gripper";
 
       // Set task properties
       task.setProperty("group", arm_group_name);
@@ -414,9 +414,9 @@ As mentioned above, this function creates a MoveIt Task Constructor object and s
       task.stages()->setName("demo task");
       task.loadRobotModel(node_);
 
-      const auto& arm_group_name = "panda_arm";
-      const auto& hand_group_name = "hand";
-      const auto& hand_frame = "panda_hand";
+      const auto& arm_group_name = "manipulator";
+      const auto& hand_group_name = "gripper";
+      const auto& hand_frame = "gripper";
 
       // Set task properties
       task.setProperty("group", arm_group_name);
@@ -464,7 +464,7 @@ Feel free to try out the different solvers and see how the robot motion changes.
 
 Now that we added in the planners, we can add a stage that will move the robot.
 The following lines use a ``MoveTo`` stage (a propagator stage). Since opening the hand is a relatively simple movement, we can use the joint interpolation planner.
-This stage plans a move to the "open hand" pose, which is a named pose defined in the :moveit_resources_codedir:`SRDF<panda_moveit_config/config/panda.srdf>` for the Panda robot.
+This stage plans a move to the "open hand" pose, which is a named pose defined in the :moveit_resources_codedir:`SRDF<kinova_gen3_moveit_config/config/gen3.srdf>` for the Kinova Gen3 robot.
 We return the task and finish with the ``createTask()`` function.
 
 .. code-block:: c++
@@ -524,7 +524,7 @@ To run the MoveIt Task Constructor node, we will use a second launch file to sta
     from moveit_configs_utils import MoveItConfigsBuilder
 
     def generate_launch_description():
-        moveit_config = MoveItConfigsBuilder("moveit_resources_panda").to_dict()
+        moveit_config = MoveItConfigsBuilder("moveit_resources_kinova_gen3_moveit_config").to_dict()
 
         # MTC Demo node
         pick_place_demo = Node(
@@ -562,12 +562,12 @@ RViz will now load. If you're using your own launch file and haven't included an
 If you are not using the RViz configuration provided, we'll have to make some changes to the RViz configuration to see your robot and the MoveIt Task Constructor solutions. First, start RViz. The following steps will cover how to set up RViz for MoveIt Task Constructor solution visualization.
 
 1. If the **MotionPlanning** display is active, uncheck it to hide it for now.
-2. Under **Global Options**, change the **Fixed Frame** from ``map`` to ``panda_link0`` if not already done.
+2. Under **Global Options**, change the **Fixed Frame** from ``map`` to ``base_link`` if not already done.
 3. On the bottom left of the window, click the **Add** button.
 4. Under ``moveit_task_constructor_visualization`` select **Motion Planning Tasks** and click OK. The **Motion Planning Tasks** display should appear on the bottom left.
 5. In the **Displays**, under **Motion Planning Tasks**,  change **Task Solution Topic** to ``/solution``
 
-You should see the panda arm in the main view with Motion Planning Tasks display open in the bottom left and nothing in it. Your MTC task will show up in this panel once you launch the ``mtc_tutorial`` node. If you're using ``mtc_demo.launch.py`` from the tutorials, jump back in here.
+You should see the Kinova Gen3 arm in the main view with Motion Planning Tasks display open in the bottom left and nothing in it. Your MTC task will show up in this panel once you launch the ``mtc_tutorial`` node. If you're using ``mtc_demo.launch.py`` from the tutorials, jump back in here.
 
 5.3 Launching the Demo
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -900,7 +900,7 @@ We finish our place serial container and add it to the task.
         task.add(std::move(place));
       }
 
-The final step is to return home: we use a ``MoveTo`` stage and pass it the goal pose of ``ready``, which is a pose defined in the Panda SRDF.
+The final step is to return home: we use a ``MoveTo`` stage and pass it the goal pose of ``ready``, which is a pose defined in the Kinova Gen3 SRDF.
 
 .. code-block:: c++
 

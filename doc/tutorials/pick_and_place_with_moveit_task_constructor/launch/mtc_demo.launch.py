@@ -9,9 +9,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 def generate_launch_description():
     # planning_context
     moveit_config = (
-        MoveItConfigsBuilder("moveit_resources_panda")
-        .robot_description(file_path="config/panda.urdf.xacro")
-        .trajectory_execution(file_path="config/gripper_moveit_controllers.yaml")
+        MoveItConfigsBuilder("moveit_resources_kinova_gen3_moveit_config")
         .planning_pipelines(
             pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"]
         )
@@ -57,7 +55,7 @@ def generate_launch_description():
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "panda_link0"],
+        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
     )
 
     # Publish TF
@@ -73,7 +71,7 @@ def generate_launch_description():
 
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"),
+        get_package_share_directory("moveit_resources_kinova_gen3_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
@@ -87,8 +85,8 @@ def generate_launch_description():
     # Load controllers
     load_controllers = []
     for controller in [
-        "panda_arm_controller",
-        "panda_hand_controller",
+        "joint_trajectory_controller",
+        "robotiq_gripper_controller",
         "joint_state_broadcaster",
     ]:
         load_controllers += [
