@@ -47,13 +47,14 @@ int main(int argc, char* argv[])
       [&moveit_visual_tools, jmg = move_group_interface.getRobotModel()->getJointModelGroup("manipulator")](
           auto const trajectory) { moveit_visual_tools.publishTrajectoryLine(trajectory, jmg); };
 
-  // Set a target Pose
+  // Set a target Pose with updated values !!!
   auto const target_pose = [] {
     geometry_msgs::msg::Pose msg;
-    msg.orientation.w = 1.0;
-    msg.position.x = 0.6;
-    msg.position.y = 0.5;  // <---- This value was changed
-    msg.position.z = 0.2;
+    msg.orientation.y = 0.8;
+    msg.orientation.w = 0.6;
+    msg.position.x = 0.1;
+    msg.position.y = 0.4;
+    msg.position.z = 0.4;
     return msg;
   }();
   move_group_interface.setPoseTarget(target_pose);
@@ -88,7 +89,7 @@ int main(int argc, char* argv[])
 
   // Add the collision object to the scene
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  // planning_scene_interface.applyCollisionObject(collision_object);
+  planning_scene_interface.applyCollisionObject(collision_object);
 
   // Create a plan to that target pose
   prompt("Press 'next' in the RvizVisualToolsGui window to plan");
