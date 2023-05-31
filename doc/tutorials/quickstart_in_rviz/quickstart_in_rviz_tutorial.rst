@@ -88,7 +88,7 @@ The display states for each of these visualizations can be toggled on and off us
 
 * Play with all these checkboxes to switch on and off different visualizations.
 
-.. image:: rviz_plugin_visualize_robots.png
+.. image:: rviz_plugin_visualize_robot.png
    :width: 700px
 
 Step 3: Interact with the Kinova Gen 3
