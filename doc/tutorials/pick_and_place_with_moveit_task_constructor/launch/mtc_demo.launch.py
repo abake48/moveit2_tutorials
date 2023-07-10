@@ -9,10 +9,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 def generate_launch_description():
     # planning_context
     moveit_config = (
-        MoveItConfigsBuilder("moveit_resources_kinova_gen3_moveit_config")
-        .planning_pipelines(
-            pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"]
-        )
+        MoveItConfigsBuilder("gen3", package_name="moveit_resources_kinova_gen3_moveit_config")
         .to_moveit_configs()
     )
 
@@ -99,11 +96,11 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            ros2_control_node,
             rviz_node,
             static_tf,
             robot_state_publisher,
             run_move_group_node,
-            ros2_control_node,
         ]
         + load_controllers
     )
