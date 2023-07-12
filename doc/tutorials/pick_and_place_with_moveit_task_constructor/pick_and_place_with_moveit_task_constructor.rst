@@ -524,7 +524,7 @@ To run the MoveIt Task Constructor node, we will use a second launch file to sta
     from moveit_configs_utils import MoveItConfigsBuilder
 
     def generate_launch_description():
-        moveit_config = MoveItConfigsBuilder("moveit_resources_kinova_gen3_moveit_config").to_dict()
+        moveit_config = MoveItConfigsBuilder("kinova_gen3_7dof_robotiq_2f_85_moveit_config").to_dict()
 
         # MTC Demo node
         pick_place_demo = Node(

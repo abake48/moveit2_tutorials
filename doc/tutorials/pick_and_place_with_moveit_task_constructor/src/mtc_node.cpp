@@ -104,7 +104,7 @@ mtc::Task MTCTaskNode::createTask()
 
   const auto& arm_group_name = "manipulator";
   const auto& hand_group_name = "gripper";
-  const auto& hand_frame = "robotiq_85_base_link";
+  const auto& hand_frame = "tool_frame";
 
   // Set task properties
   task.setProperty("group", arm_group_name);

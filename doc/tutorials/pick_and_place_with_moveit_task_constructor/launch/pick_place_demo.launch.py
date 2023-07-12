@@ -5,7 +5,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 
 def generate_launch_description():
     moveit_config = (
-        MoveItConfigsBuilder("gen3", package_name="moveit_resources_kinova_gen3_moveit_config")
+        MoveItConfigsBuilder("gen3", package_name="kinova_gen3_7dof_robotiq_2f_85_moveit_config")
         .to_moveit_configs()
         .to_dict()
     )

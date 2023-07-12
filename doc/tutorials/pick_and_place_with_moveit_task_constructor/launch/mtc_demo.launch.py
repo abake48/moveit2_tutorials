@@ -9,7 +9,7 @@ from moveit_configs_utils import MoveItConfigsBuilder
 def generate_launch_description():
     # planning_context
     moveit_config = (
-        MoveItConfigsBuilder("gen3", package_name="moveit_resources_kinova_gen3_moveit_config")
+        MoveItConfigsBuilder("gen3", package_name="kinova_gen3_7dof_robotiq_2f_85_moveit_config")
         .to_moveit_configs()
     )
 
@@ -68,7 +68,7 @@ def generate_launch_description():
 
     # ros2_control using FakeSystem as hardware
     ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_kinova_gen3_moveit_config"),
+        get_package_share_directory("kinova_gen3_7dof_robotiq_2f_85_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
