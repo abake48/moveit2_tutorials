@@ -53,12 +53,11 @@ void MTCTaskNode::setupPlanningScene()
   object.header.frame_id = "world";
   object.primitives.resize(1);
   object.primitives[0].type = shape_msgs::msg::SolidPrimitive::CYLINDER;
-  object.primitives[0].dimensions = { 0.3, 0.02 };
+  object.primitives[0].dimensions = { 0.1, 0.02 };
 
   geometry_msgs::msg::Pose pose;
-  pose.position.x = 0.5;
+  pose.position.x = 0.2;
   pose.position.y = -0.25;
-  pose.position.z = 0.3;
   object.pose = pose;
 
   moveit::planning_interface::PlanningSceneInterface psi;
@@ -104,7 +103,7 @@ mtc::Task MTCTaskNode::createTask()
 
   const auto& arm_group_name = "manipulator";
   const auto& hand_group_name = "gripper";
-  const auto& hand_frame = "tool_frame";
+  const auto& hand_frame = "manual_grasp_link";
 
   // Set task properties
   task.setProperty("group", arm_group_name);
@@ -123,6 +122,14 @@ mtc::Task MTCTaskNode::createTask()
   cartesian_planner->setMaxVelocityScaling(1.0);
   cartesian_planner->setMaxAccelerationScaling(1.0);
   cartesian_planner->setStepSize(.01);
+  
+  // clang-format off
+  auto stage_move_to_home =
+      std::make_unique<mtc::stages::MoveTo>("move_home", cartesian_planner);
+  // clang-format on
+  stage_move_to_home->setGroup(arm_group_name);
+  stage_move_to_home->setGoal("home");
+  task.add(std::move(stage_move_to_home));
 
   // clang-format off
   auto stage_open_hand =
@@ -137,7 +144,7 @@ mtc::Task MTCTaskNode::createTask()
       "move to pick",
       mtc::stages::Connect::GroupPlannerVector{ { arm_group_name, sampling_planner } });
   // clang-format on
-  stage_move_to_pick->setTimeout(5.0);
+  stage_move_to_pick->setTimeout(30.0);
   stage_move_to_pick->properties().configureInitFrom(mtc::Stage::PARENT);
   task.add(std::move(stage_move_to_pick));
 
@@ -159,12 +166,12 @@ mtc::Task MTCTaskNode::createTask()
     {
       // clang-format off
       auto stage =
-          std::make_unique<mtc::stages::MoveRelative>("approach object", interpolation_planner);
+          std::make_unique<mtc::stages::MoveRelative>("approach object", cartesian_planner);
       // clang-format on
       stage->properties().set("marker_ns", "approach_object");
       stage->properties().set("link", hand_frame);
       stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
-      stage->setMinMaxDistance(0.1, 0.15);
+      stage->setMinMaxDistance(0.1, 0.16);
 
       // Set hand forward direction
       geometry_msgs::msg::Vector3Stamped vec;
@@ -262,7 +269,7 @@ mtc::Task MTCTaskNode::createTask()
         mtc::stages::Connect::GroupPlannerVector{ { arm_group_name, sampling_planner },
                                                   { hand_group_name, interpolation_planner } });
     // clang-format on
-    stage_move_to_place->setTimeout(5.0);
+    stage_move_to_place->setTimeout(30.0);
     stage_move_to_place->properties().configureInitFrom(mtc::Stage::PARENT);
     task.add(std::move(stage_move_to_place));
   }
@@ -287,7 +294,7 @@ mtc::Task MTCTaskNode::createTask()
 
       geometry_msgs::msg::PoseStamped target_pose_msg;
       target_pose_msg.header.frame_id = "object";
-      target_pose_msg.pose.position.y = 0.5;
+      target_pose_msg.pose.position.y = 0.2;
       stage->setPose(target_pose_msg);
       stage->setMonitoredStage(attach_object_stage);  // Hook into attach_object_stage
 
@@ -299,7 +306,7 @@ mtc::Task MTCTaskNode::createTask()
       wrapper->setMaxIKSolutions(2);
       wrapper->setMinSolutionDistance(1.0);
       wrapper->setIKFrame(hand_frame);
-      wrapper->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group" });
+      wrapper->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group", "ik_frame" });
       wrapper->properties().configureInitFrom(mtc::Stage::INTERFACE, { "target_pose" });
       place->insert(std::move(wrapper));
     }
@@ -350,7 +357,7 @@ mtc::Task MTCTaskNode::createTask()
   {
     auto stage = std::make_unique<mtc::stages::MoveTo>("return home", interpolation_planner);
     stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
-    stage->setGoal("ready");
+    stage->setGoal("home");
     task.add(std::move(stage));
   }
   return task;
